@@ -1,9 +1,10 @@
-package com.example.catatanbelanja
+package com.example.catatanbelanja.data.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.catatanbelanja.data.db.entities.ShoppingItem
 
 @Database(
     entities = [ShoppingItem::class],
@@ -20,7 +21,7 @@ abstract class ShoppingDatabase : RoomDatabase(){
         private var instance : ShoppingDatabase? = null
         private val LOCK = Any()
 
-        private fun invoke (context: Context)= instance?: synchronized(LOCK){
+        operator fun invoke (context: Context)= instance ?: synchronized(LOCK){
             instance ?: createDatabase(context).also {
                 instance = it
             }
