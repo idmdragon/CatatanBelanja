@@ -17,6 +17,7 @@ class ShoppingItemAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoppingViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_shopping,parent,false)
+        return ShoppingViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ShoppingViewHolder, position: Int) {
